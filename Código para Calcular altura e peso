@@ -1,0 +1,20 @@
+#  Cálculo que  apresenta altura e peso idela para sexo femini e masculino
+
+# Calcula o peso ideal com base no sexo
+
+# 1 para o sexo feminino
+
+# 2 para o sexo masculino
+
+
+if sexo == 1: 
+    peso_ideal = (62.1 * altura) - 44.7
+elif sexo == 2: 
+    peso_ideal = (75.0 * altura) - 58
+else:
+    print("Sexo inválido")
+    peso_ideal = None
+
+# Imprime o resultado
+if peso_ideal is not None:
+    print("Seu peso ideal é de {:.2f} kg.".format(peso_ideal))
