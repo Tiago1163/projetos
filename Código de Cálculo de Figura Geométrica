@@ -1,0 +1,60 @@
+#  Abaixo Código que Calcula  os lados de um poligino.
+
+
+# Solicita o número de lados 
+
+# mostra a medida da área
+
+n_lados = int(input("Digite o número de lados do polígono: "))
+medida_lado = float(input("Digite a medida do lado do polígono (em cm): "))
+
+# Verifica o tipo de polígono e calcula a área, se aplicável
+if n_lados == 3: 
+    tipo_poligono = "TRIÂNGULO"
+    area = (medida_lado ** 2 * 3 ** 0.5) / 4 
+elif n_lados == 4: 
+    tipo_poligono = "QUADRADO"
+    area = medida_lado ** 2 
+elif n_lados == 5: 
+    tipo_poligono = "PENTÁGONO"
+    area = None 
+elif n_lados < 3:
+    tipo_poligono = "Não é um Polígono"
+elif n_lados >= 5:
+    tipo_poligono = "Desconhecido"  
+  
+else:
+    tipo_poligono = "POLÍGONO DESCONHECIDO"
+    area = None
+
+# Imprime o resultado
+print("O polígono informado é um {}.".format(tipo_poligono))
+
+# Solicita o número de lados 
+
+# mostra a medida da área
+
+n_lados = int(input("Digite o número de lados do polígono: "))
+medida_lado = float(input("Digite a medida do lado do polígono (em cm): "))
+
+# Verifica o tipo de polígono e calcula a área, se aplicável
+if n_lados == 3: 
+    tipo_poligono = "TRIÂNGULO"
+    area = (medida_lado ** 2 * 3 ** 0.5) / 4 
+elif n_lados == 4: 
+    tipo_poligono = "QUADRADO"
+    area = medida_lado ** 2 
+elif n_lados == 5: 
+    tipo_poligono = "PENTÁGONO"
+    area = None 
+elif n_lados < 3:
+    tipo_poligono = "Não é um Polígono"
+elif n_lados >= 5:
+    tipo_poligono = "Desconhecido"  
+  
+else:
+    tipo_poligono = "POLÍGONO DESCONHECIDO"
+    area = None
+
+# Imprime o resultado
+print("O polígono informado é um {}.".format(tipo_poligono))
