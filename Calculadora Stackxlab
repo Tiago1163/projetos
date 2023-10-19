@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora com Histórico</title>
+    <style>
+        /* Estilos para a calculadora */
+
+        body{
+            background-color: rgb(248, 166, 59);
+        }
+.calculator {
+    float: left;
+    margin-right: 10px;
+    border: 1px solid black;
+    background-color: yellow;
+    padding: 100px;
+    width: 100%;
+    max-width: 400px;
+}
+.calculator input {
+    width: 55%;
+    padding: 10px;
+    display: flex;
+    margin-bottom: 10px;
+    background-color: black;
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+.calculator button {
+    width: 23%;
+    padding: 10px;
+    font-size: 18px;
+    background-color: black;
+    color: white;
+    width: 21%;
+    margin: 5px;
+}
+.painel {
+    width: 125%;
+    margin: 15px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+/* tabela de histórico */
+.history {
+    float: left;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border: none;
+}
+.history h2 {
+    text-align: center;
+    border: none;
+}
+.history table {
+    border-collapse: collapse;
+    width: 100%;
+    border: none;
+    background-color: rgb(225, 245, 46);
+}
+.history th, .history td {
+    border: 0.2px solid #0c0c0c;
+    padding: 10px;
+    text-align: center;
+}
+
+    </style>
+</head>
+
+<body>
+
+<div class="painel">
+
+
+    <div class="calculator">
+        <input type="text" id="display" readonly>
+        <br>
+
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button onclick="clearDisplay()">C</button>
+        <br>
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button onclick="appendToDisplay('/')">/</button>
+        <br>
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+        <button onclick="appendToDisplay('*')">X</button>
+        <br>
+        <button onclick="appendToDisplay('0')">0</button>
+        <button onclick="calculateResult('=')">=</button>
+        <button onclick="appendToDisplay('+')">+</button>
+        <button onclick="appendToDisplay('-')">-</button>   
+    </div>
+
+    <div class="history">
+        <h1></h1>
+        <table>
+            <tr>                
+                <th>Data e Hora</th>                
+                <th>Expressão</th>
+            </tr>
+        </table>
+    </div>
+</div>
+    <script>
+        function appendToDisplay(value) {
+            const display = document.getElementById('display');
+            display.value += value;
+        }
+
+        function calculateResult() {
+            const display = document.getElementById('display');
+            let expression = display.value;
+            try {
+                let result = eval(expression);
+                display.value = result;
+                addToHistory(expression);
+            } catch (error) {
+                display.value = 'Erro';
+            }
+        }
+
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+
+        function addToHistory(expression) {
+            const historyTable = document.querySelector('.history table');
+            const newRow = historyTable.insertRow(-1);
+            const dateCell = newRow.insertCell(0);
+            const expressionCell = newRow.insertCell(1);
+
+
+            expressionCell.textContent = expression;
+            dateCell.textContent = new Date().toLocaleString();
+        }
+    </script>
+</body>
+</html>
